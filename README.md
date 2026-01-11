@@ -4,7 +4,7 @@ A program fejlesztés alatt áll. / This program is currently under development.
 
 Leírás/Description:
 
-!FIGYELEM!
+⚠️!FIGYELEM!
 A program csak Windows 10 és Windows 11 operációs rendszeren működik.
 
 A program futtatásához elegendő duplán rákattintani a start.bat fájlra.
@@ -29,7 +29,7 @@ Kezelés / irányítás:
 - A Mentés gombra kattintva, a minta nevét megadva, majd az Enter billentyűt megnyomva
   a minta elmenthető a 'saves' mappába.
 - A mentett minták bármikor betölthetők és tovább szerkeszthetők a Megnyitás menüpontban.
-- FIGYELEM! Nincs automatikus mentés.
+- ⚠️FIGYELEM! Nincs automatikus mentés.
   A nem mentett módosítások elvesznek a program bezárásakor
   vagy új minta megnyitásakor.
 
