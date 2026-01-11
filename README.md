@@ -1,7 +1,7 @@
 # Sprang_pattern_designer
 Készítsd el a saját sprang mintádat gyorsan és egyszerűen. / Create your own sprang pattern quickly and easily.
 A program fejlesztés alatt áll. / This program is currently under development.
-
+Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani / If you find a bug, please report it so I can fix it.
 Leírás/Description:
 
 ⚠️!FIGYELEM!
