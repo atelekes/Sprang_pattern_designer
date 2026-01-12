@@ -1,9 +1,10 @@
 # Sprang_pattern_designer
 Készítsd el a saját sprang mintádat gyorsan és egyszerűen. / Create your own sprang pattern quickly and easily.
 
-A program fejlesztés alatt áll. / This program is currently under development.
+A program fejlesztés alatt áll. / This program is currently under development. 
 
-Szívesen várom a felhasználói véleményeket, javaslatokat a program fejlesztéséhez. /
+Szívesen fogadom a felhasználói visszajelzéseket és javaslatokat a program fejlesztésére. / I welcome user feedback and suggestions for improving the program.
+
 Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani / If you find a bug, please report it so I can fix it.
 
 [Kattints ide a legfrissebb verzió letöltéséhez! / Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer.zip)
