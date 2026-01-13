@@ -9,6 +9,8 @@ Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani 
 
 [Kattints ide a legfrissebb verzió letöltéséhez! / Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer.zip)
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 Leírás/Description:
 
 ⚠️!FIGYELEM!
@@ -31,6 +33,7 @@ Kezelés / irányítás:
   - Az egérgörgővel fel és le mozgathatja a mintát.
   - Shift + görgetés: oldalirányú mozgatás.
   - Ctrl + görgetés: nagyítás és kicsinyítés.
+  - A nyilak segítségével tudja az egész mintát mozgatni a nyílnak megfelelő irányba.
   - A sorok és oszlopok számát úgy módosíthatja,
     hogy, az ezt jezlő szöveg fölé viszi a kurzort, majd a görgő segítségével beállítja a kívánt értéket.
 - A Mentés gombra kattintva, a minta nevét megadva, majd az Enter billentyűt megnyomva
@@ -67,6 +70,7 @@ Controls / Navigation:
   - Use the mouse wheel to scroll the pattern up and down.
   - Shift + scroll: move the pattern sideways.
   - Ctrl + scroll: zoom in and out.
+  - You can move the entire pattern in the direction of the arrow using the arrow keys.
   - To change the number of rows and columns,
     hover the cursor over the corresponding label,
     then use the mouse wheel to set the desired value.
