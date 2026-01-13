@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 class Text:
-    def __init__(self, text, x, y, color=(0, 0, 0), size=100, pos='center', border=0):
+    def __init__(self, text, x, y, color=(0, 0, 0), size=100, pos='center', border=0, static=True):
         self.rect = None
         self.text = text
         self.x = x
@@ -11,33 +11,56 @@ class Text:
         self.color = color
         self.size = size
         self.border = border
+        self.static = static
         self.pos = pos
         self.font = pygame.font.Font(None, self.size)
         self.state = False
         self.surf = None
         self.original_color = self.color
         self.hover = False
+        self.generated = False
 
     def draw(self):
-        self.surf = self.font.render(str(self.text), True, self.color)
-        if self.pos == 'center':
-            self.rect = self.surf.get_rect(center=(self.x, self.y))
-        elif self.pos == 'topleft':
-            self.rect = self.surf.get_rect(topleft=(self.x, self.y))
-        elif self.pos == 'midleft':
-            self.rect = self.surf.get_rect(midleft=(self.x, self.y))
-        elif self.pos == 'bottomleft':
-            self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
-        elif self.pos == 'midbottom':
-            self.rect = self.surf.get_rect(midbottom=(self.x, self.y))
-        elif self.pos == 'bottomright':
-            self.rect = self.surf.get_rect(bottomright=(self.x, self.y))
-        elif self.pos == 'midright':
-            self.rect = self.surf.get_rect(midright=(self.x, self.y))
-        elif self.pos == 'topright':
-            self.rect = self.surf.get_rect(topright=(self.x, self.y))
-        elif self.pos == 'midtop':
-            self.rect = self.surf.get_rect(midtop=(self.x, self.y))
+        if not self.generated and self.static:
+            self.surf = self.font.render(str(self.text), True, self.color)
+            if self.pos == 'center':
+                self.rect = self.surf.get_rect(center=(self.x, self.y))
+            elif self.pos == 'topleft':
+                self.rect = self.surf.get_rect(topleft=(self.x, self.y))
+            elif self.pos == 'midleft':
+                self.rect = self.surf.get_rect(midleft=(self.x, self.y))
+            elif self.pos == 'bottomleft':
+                self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
+            elif self.pos == 'midbottom':
+                self.rect = self.surf.get_rect(midbottom=(self.x, self.y))
+            elif self.pos == 'bottomright':
+                self.rect = self.surf.get_rect(bottomright=(self.x, self.y))
+            elif self.pos == 'midright':
+                self.rect = self.surf.get_rect(midright=(self.x, self.y))
+            elif self.pos == 'topright':
+                self.rect = self.surf.get_rect(topright=(self.x, self.y))
+            elif self.pos == 'midtop':
+                self.rect = self.surf.get_rect(midtop=(self.x, self.y))
+        elif not self.static:
+            self.surf = self.font.render(str(self.text), True, self.color)
+            if self.pos == 'center':
+                self.rect = self.surf.get_rect(center=(self.x, self.y))
+            elif self.pos == 'topleft':
+                self.rect = self.surf.get_rect(topleft=(self.x, self.y))
+            elif self.pos == 'midleft':
+                self.rect = self.surf.get_rect(midleft=(self.x, self.y))
+            elif self.pos == 'bottomleft':
+                self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
+            elif self.pos == 'midbottom':
+                self.rect = self.surf.get_rect(midbottom=(self.x, self.y))
+            elif self.pos == 'bottomright':
+                self.rect = self.surf.get_rect(bottomright=(self.x, self.y))
+            elif self.pos == 'midright':
+                self.rect = self.surf.get_rect(midright=(self.x, self.y))
+            elif self.pos == 'topright':
+                self.rect = self.surf.get_rect(topright=(self.x, self.y))
+            elif self.pos == 'midtop':
+                self.rect = self.surf.get_rect(midtop=(self.x, self.y))
         screen.blit(self.surf, self.rect)
         if self.border != 0:
             pygame.draw.rect(screen, self.color, self.rect.inflate(10 + self.border, 10 + self.border), width=self.border)
@@ -63,7 +86,7 @@ class Text:
 
 
 class Block:
-    global columns, rows, block_width, block_height, line_width
+    global columns, rows, block_width, block_height, line_width, h_shift, v_shift, nums
     def __init__(self, x, y, status, row, column, ser_num):
         self.x = x
         self.y = y
@@ -75,22 +98,29 @@ class Block:
         self.rect = None
         self.collide = False
 
-    def draw(self):
-        pygame.draw.rect(screen, self.color, (self.x, self.y, block_width, block_height), 2)
+    def change(self, draw=False):
+        self.x = w/2- columns /2*block_width+(self.ser_num % columns)*block_width + h_shift
+        self.y = 50+(self.ser_num // columns)*block_height + v_shift
         self.rect = pygame.Rect(self.x, self.y, block_width, block_height)
-        if self.row % 2 == 0 and self.column % 2 == 0:
-            pygame.draw.line(screen, (0,0,0), self.rect.center,
-                             (self.rect.center[0] + block_width, self.rect.center[1]), int(round(line_width)))
-        elif self.row % 2 == 1 and self.column % 2 == 1 and self.column != columns-1:
-            pygame.draw.line(screen, (0, 0, 0), self.rect.center,
-                             (self.rect.center[0] + block_width, self.rect.center[1]), int(round(line_width)))
+        if self.row == 0 and not draw:
+            nums[self.column].x = self.x+block_width/8
+            nums[self.column].y = self.y-5
+    def draw(self):
+        if self.rect.colliderect(screen.get_rect()):
+            pygame.draw.rect(screen, self.color, self.rect, 2)
+            if self.row % 2 == 0 and self.column % 2 == 0:
+                pygame.draw.line(screen, (0,0,0), self.rect.center,
+                                 (self.rect.center[0] + block_width, self.rect.center[1]), int(round(line_width)))
+            elif self.row % 2 == 1 and self.column % 2 == 1 and self.column != columns-1:
+                pygame.draw.line(screen, (0, 0, 0), self.rect.center,
+                                 (self.rect.center[0] + block_width, self.rect.center[1]), int(round(line_width)))
 
-        if self.rect.collidepoint(pygame.mouse.get_pos()):
-            self.color = (230, 230, 230)
-            self.collide = True
-        else:
-            self.color = (80, 80, 80)
-            self.collide = False
+            if self.rect.collidepoint(pygame.mouse.get_pos()):
+                self.color = (230, 230, 230)
+                self.collide = True
+            else:
+                self.color = (80, 80, 80)
+                self.collide = False
 
 class Marks:
     global block_width, block_height, line_width, blocks, active_hover
@@ -117,6 +147,7 @@ class Marks:
 
     def draw(self):
         global active_hover, greens, blues, oranges
+        screen_rect = screen.get_rect()
         if self.static:
             if self.color_text == 'orange':
                 self.rect = pygame.Rect(self.x, self.y, 100, 50)
@@ -129,40 +160,6 @@ class Marks:
                 pygame.draw.line(screen, (0, 0, 0), (self.rect.midleft[0] + 25 / 2, self.rect.midleft[1]),
                                  (self.rect.midright[0] - 25 / 2, self.rect.midright[1]), 5)
         else:
-            if self.color_text == 'orange':
-                self.rect = pygame.Rect(self.x, self.y, block_width * 4, block_height)
-                pygame.draw.rect(screen, self.color, self.rect)
-                pygame.draw.line(screen, (0, 0, 0), (self.rect.midleft[0] + block_width / 2, self.rect.midleft[1]),
-                                 (self.rect.midright[0] - block_width / 2, self.rect.midright[1]),
-                                 int(round(line_width)))
-            else:
-                self.rect = pygame.Rect(self.x, self.y, block_width * 3, block_height)
-                pygame.draw.rect(screen, self.color, self.rect)
-                pygame.draw.line(screen, (0, 0, 0), (self.rect.midleft[0]+block_width/2, self.rect.midleft[1]),
-                                 (self.rect.midright[0]-block_width/2, self.rect.midright[1]), int(round(line_width)))
-
-            if not self.wait:
-                if self.rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0] and not self.hover:
-                    if self.color_text == 'blue':
-                        blues.pop(self.ser_num)
-                        for blu_ in blues:
-                            if blu_.ser_num > self.ser_num:
-                                blu_.ser_num -= 1
-                    elif self.color_text == 'green':
-                        greens.pop(self.ser_num)
-                        for gre_ in greens:
-                            if gre_.ser_num > self.ser_num:
-                                gre_.ser_num -= 1
-                    elif self.color_text == 'orange':
-                        oranges.pop(self.ser_num)
-                        for ora in oranges:
-                            if ora.ser_num > self.ser_num:
-                                ora.ser_num -= 1
-                elif (self.rect.collidepoint(pygame.mouse.get_pos()) and
-                      pygame.mouse.get_pressed()[2] and not self.hover):
-                    self.hover = True
-                    active_hover = True
-
             if self.hover:
                 for bl in blocks:
                     if bl.collide:
@@ -175,28 +172,66 @@ class Marks:
                     active_hover = False
                     self.wait = True
             else:
-                for bl_ in blocks:
-                    if bl_.row == self.block_row and bl_.column == self.block_column:
-                        self.x = bl_.rect.topleft[0]
-                        self.y = bl_.rect.topleft[1]
+                try:
+                    self.x = blocks[self.block_row * columns + self.block_column].rect.topleft[0]
+                    self.y = blocks[self.block_row * columns + self.block_column].rect.topleft[1]
+                except:
+                    pass
 
-        if self.rect.collidepoint(pygame.mouse.get_pos()):
-            self.color = True
-            if self.color_text == 'blue':
-                self.color = (119, 249, 255)
-            elif self.color_text == 'green':
-                self.color = (166, 228, 100)
+            if self.color_text == 'orange':
+                self.rect = pygame.Rect(self.x, self.y, block_width * 4, block_height)
+                if self.rect.colliderect(screen_rect):
+                    pygame.draw.rect(screen, self.color, self.rect)
+                    pygame.draw.line(screen, (0, 0, 0), (self.rect.midleft[0] + block_width / 2, self.rect.midleft[1]),
+                                     (self.rect.midright[0] - block_width / 2, self.rect.midright[1]),
+                                     int(round(line_width)))
             else:
-                self.color = (255, 176, 48)
-        else:
-            if self.color_text == 'blue':
-                self.color = (99, 229, 255)
-            elif self.color_text == 'green':
-                self.color = (146, 208, 80)
+                self.rect = pygame.Rect(self.x, self.y, block_width * 3, block_height)
+                if self.rect.colliderect(screen_rect):
+                    pygame.draw.rect(screen, self.color, self.rect)
+                    pygame.draw.line(screen, (0, 0, 0), (self.rect.midleft[0]+block_width/2, self.rect.midleft[1]),
+                                     (self.rect.midright[0]-block_width/2, self.rect.midright[1]), int(round(line_width)))
+            if self.rect.colliderect(screen_rect):
+                if not self.wait:
+                    if self.rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0] and not self.hover:
+                        if self.color_text == 'blue':
+                            blues.pop(self.ser_num)
+                            for blu_ in blues:
+                                if blu_.ser_num > self.ser_num:
+                                    blu_.ser_num -= 1
+                        elif self.color_text == 'green':
+                            greens.pop(self.ser_num)
+                            for gre_ in greens:
+                                if gre_.ser_num > self.ser_num:
+                                    gre_.ser_num -= 1
+                        elif self.color_text == 'orange':
+                            oranges.pop(self.ser_num)
+                            for ora in oranges:
+                                if ora.ser_num > self.ser_num:
+                                    ora.ser_num -= 1
+                    elif (self.rect.collidepoint(pygame.mouse.get_pos()) and
+                          pygame.mouse.get_pressed()[2] and not self.hover):
+                        self.hover = True
+                        active_hover = True
+
+
+            if self.rect.collidepoint(pygame.mouse.get_pos()):
+                self.color = True
+                if self.color_text == 'blue':
+                    self.color = (119, 249, 255)
+                elif self.color_text == 'green':
+                    self.color = (166, 228, 100)
+                else:
+                    self.color = (255, 176, 48)
             else:
-                self.color = (250, 156, 28)
-        if self.wait and not self.rect.collidepoint(pygame.mouse.get_pos()):
-            self.wait = False
+                if self.color_text == 'blue':
+                    self.color = (99, 229, 255)
+                elif self.color_text == 'green':
+                    self.color = (146, 208, 80)
+                else:
+                    self.color = (250, 156, 28)
+            if self.wait and not self.rect.collidepoint(pygame.mouse.get_pos()):
+                self.wait = False
 
 
     def button(self):
@@ -207,10 +242,7 @@ class Marks:
 
     def saving_data(self):
         return {
-            'x': self.x,
-            'y': self.y,
             'color': self.color_text,
-            'ser_num': self.ser_num,
             'block_row': self.block_row,
             'block_column': self.block_column,
         }
@@ -222,9 +254,18 @@ def block_draw(row, column):
     for i in range(row*column):
         blocks.append(Block(w/2-column/2*block_width+(i % column)*block_width + h_shift,
                             50+(i // column)*block_height + v_shift, 'none', i//column, i%column, len(blocks)))
+
     for bl in blocks:
+        bl.change(True)
         if bl.row == 0:
             nums.append(Text(bl.column+1, bl.x+block_width/8, bl.y-5, (0,0,0), int(round(block_width)), 'bottomleft'))
+
+def change_box():
+    global columns, rows, v_shift, h_shift, blocks, block_width, block_height
+    for blo in blocks:
+        blo.change()
+
+
 
 w, h = (1366, 698)
 BG_color = (255, 236, 197)
@@ -232,7 +273,6 @@ block_width = 25
 block_height = 50
 clock = pygame.time.Clock()
 pygame.init()
-pygame.mixer.init()
 screen = pygame.display.set_mode((w, h), pygame.RESIZABLE)
 
 hwnd = pygame.display.get_wm_info()["window"]
@@ -262,8 +302,8 @@ eng = Text('English', w/2+200, h/2, (0,0,0), 100, 'center', 10)
 back = Text('Back', w-10, 10, (0,0,0), 50, 'topright', 5)
 create = Text('Create new', 10, 10, (0,0,0), 50, 'topleft', 5)
 load = Text('Open', 10, 60, (0,0,0), 50, 'topleft', 5)
-row_text = Text(str('Rows: ' + str(rows)), 10, 10, (0,0,0), 50, 'topleft', 5)
-column_text = Text(str('Columns: ' + str(columns)), 10, 60, (0,0,0), 50, 'topleft', 5)
+row_text = Text(str('Rows: ' + str(rows)), 10, 10, (0,0,0), 50, 'topleft', 5, False)
+column_text = Text(str('Columns: ' + str(columns)), 10, 60, (0,0,0), 50, 'topleft', 5, False)
 save = Text('Save', w-10, 70, (0,0,0), 50, 'topright', 5)
 save_text = Text('Saving name (press enter to save)', w/2, h/2-100, (0,0,0), 50, 'center')
 save_name_text = Text(save_name, w/2, h/2+100, (0,0,0), 50, 'center')
@@ -290,7 +330,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-            pygame.mixer.quit()
             sys.exit()
         elif event.type == pygame.VIDEORESIZE:
             block_draw(rows, columns)
@@ -300,24 +339,32 @@ while running:
                     block_width *= 0.95
                     block_height *= 0.95
                     line_width *= 0.95
-                    block_draw(rows, columns)
+                    change_box()
                 else:
                     block_width /= 0.95
                     block_height /= 0.95
                     line_width /= 0.95
-                    block_draw(rows, columns)
+                    change_box()
             elif pygame.key.get_pressed()[pygame.K_LSHIFT]:
                 h_shift += event.y * 20
-                block_draw(rows, columns)
+                change_box()
             elif row_text.hover:
                 rows += event.y
                 block_draw(rows, columns)
+                if lang == 'hun':
+                    row_text.text = str('Sorok: ' + str(rows))
+                else:
+                    row_text.text = str('Rows: ' + str(rows))
             elif column_text.hover:
                 columns += event.y*4
                 block_draw(rows, columns)
+                if lang == 'hun':
+                    column_text.text = str('Oszlopok: ' + str(columns))
+                else:
+                    column_text.text = str('Columns: ' + str(columns))
             else:
                 v_shift += event.y * 20
-                block_draw(rows, columns)
+                change_box()
 
         elif event.type == pygame.KEYDOWN and state == 'save':
             key = event.unicode
@@ -347,6 +394,38 @@ while running:
                 state = 'draw'
             else:
                 save_name += key
+
+        elif event.type == pygame.KEYUP and state == 'draw':
+            spec_key = pygame.key.name(event.key)
+            if spec_key == 'up':
+                for b in blues:
+                    b.block_row -= 1
+                for g in greens:
+                    g.block_row -= 1
+                for o in oranges:
+                    o.block_row -= 1
+            elif spec_key == 'down':
+                for b in blues:
+                    b.block_row += 1
+                for g in greens:
+                    g.block_row += 1
+                for o in oranges:
+                    o.block_row += 1
+            elif spec_key == 'right':
+                for b in blues:
+                    b.block_column += 1
+                for g in greens:
+                    g.block_column += 1
+                for o in oranges:
+                    o.block_column += 1
+            elif spec_key == 'left':
+                for b in blues:
+                    b.block_column -= 1
+                for g in greens:
+                    g.block_column -= 1
+                for o in oranges:
+                    o.block_column -= 1
+
     if state == 'language':
         if hun.button():
             state = 'selector'
@@ -391,13 +470,13 @@ while running:
                         rows = data['rows']
                         columns = data['columns']
                         for b in data['blues']:
-                            blues.append(Marks(b['x'], b['y'], b['color'], b['ser_num'],
+                            blues.append(Marks(0, 0, b['color'], len(blues),
                                                False, False, b['block_row'], b['block_column']))
                         for g in data['greens']:
-                            greens.append(Marks(g['x'], g['y'], g['color'], g['ser_num'],
+                            greens.append(Marks(0, 0, g['color'], len(greens),
                                                False, False, g['block_row'], g['block_column']))
                         for o in data['oranges']:
-                            oranges.append(Marks(o['x'], o['y'], o['color'], o['ser_num'],
+                            oranges.append(Marks(0, 0, o['color'], len(oranges),
                                                False, False, o['block_row'], o['block_column']))
             state = 'draw'
             block_draw(rows, columns)
@@ -408,13 +487,6 @@ while running:
             block_draw(rows, columns)
         for b in blocks:
             b.draw()
-
-        if lang == 'hun':
-            row_text = Text(str('Sorok: ' + str(rows)), 10, 10, (0, 0, 0), 50, 'topleft', 5)
-            column_text = Text(str('Oszlopok: ' + str(columns)), 10, 60, (0, 0, 0), 50, 'topleft', 5)
-        else:
-            row_text = Text(str('Rows: ' + str(rows)), 10, 10, (0, 0, 0), 50, 'topleft', 5)
-            column_text = Text(str('Columns: ' + str(columns)), 10, 60, (0, 0, 0), 50, 'topleft', 5)
         row_text.draw()
         column_text.draw()
         green.draw()
@@ -446,6 +518,8 @@ while running:
         for n in nums:
             n.draw()
 
+
+
     elif state == 'save':
         if back.button():
             state = 'draw'
@@ -454,5 +528,5 @@ while running:
         save_name_text = Text(save_name, w / 2, h / 2 + 100, (0, 0, 0), 50, 'center')
 
 
-    clock.tick(60)
+    clock.tick(24)
     pygame.display.update()
