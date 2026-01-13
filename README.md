@@ -7,7 +7,7 @@ Szívesen fogadom a felhasználói visszajelzéseket és javaslatokat a program 
 
 Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani / If you find a bug, please report it so I can fix it.
 
-[Kattints ide a legfrissebb verzió letöltéséhez! / Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download)
+[Kattints ide a legfrissebb verzió letöltéséhez! / Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
