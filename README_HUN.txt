@@ -21,14 +21,12 @@ Kezelés / irányítás:
   - A nyilak segítségével tudja az egész mintát mozgatni a nyílnak megfelelő irányba.
   - A sorok és oszlopok számát úgy módosíthatja,
     hogy, az ezt jezlő szöveg fölé viszi a kurzort, majd a görgő segítségével beállítja a kívánt értéket.
-- A Mentés gombra kattintva, a minta nevét megadva, majd az Enter billentyűt megnyomva
-  a minta elmenthető a 'saves' mappába.
-- A mentett minták bármikor betölthetők és tovább szerkeszthetők a Megnyitás menüpontban.
-- FIGYELEM! Nincs automatikus mentés.
-  A nem mentett módosítások elvesznek a program bezárásakor
-  vagy új minta megnyitásakor.
+  - A mentett minták bármikor betölthetők és tovább szerkeszthetők a Megnyitás menüpontban.
+  - FIGYELEM! Nincs automatikus mentés.
+    A nem mentett módosítások elvesznek a program bezárásakor
+    vagy új minta megnyitásakor.
 
 Technikai részletek:
 - Embedded Python 3.13.5 verziót használ
 - A fő program Pygame-ben készült
-- A megnyitás funkció Tkinterrel van megvalósítva
+- A megnyitás és mentés funkció Tkinterrel van megvalósítva
