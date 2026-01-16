@@ -1,4 +1,8 @@
-import pygame, sys, ctypes, json, os
+import pygame
+import sys
+import ctypes
+import json
+import os
 import tkinter as tk
 from tkinter import filedialog
 
@@ -294,6 +298,9 @@ active_hover = False
 path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'saves')
 save_name = ''
 nums = []
+verific_blues = []
+verific_greens = []
+verific_oranges = []
 
 pygame.display.set_caption("Sprang")
 w,h = screen.get_size()
@@ -366,35 +373,6 @@ while running:
                 v_shift += event.y * 20
                 change_box()
 
-        elif event.type == pygame.KEYDOWN and state == 'save':
-            key = event.unicode
-            spec_key = pygame.key.name(event.key)
-            if spec_key == 'backspace':
-                save_name = save_name[:-1]
-
-            elif spec_key == 'return':
-                save_name += '.json'
-                save_path = os.path.join(path, save_name)
-                for b2 in blues:
-                    saving_blues.append(b2.saving_data())
-                for g2 in greens:
-                    saving_greens.append(g2.saving_data())
-                for o2 in oranges:
-                    saving_oranges.append(o2.saving_data())
-                save_data = {
-                    'verification': 'sprang_sample',
-                    'rows': rows,
-                    'columns': columns,
-                    'blues': saving_blues,
-                    'greens': saving_greens,
-                    'oranges': saving_oranges,
-                }
-                with open(save_path, 'w') as save_file:
-                    json.dump(save_data, save_file, indent=4)
-                state = 'draw'
-            else:
-                save_name += key
-
         elif event.type == pygame.KEYUP and state == 'draw':
             spec_key = pygame.key.name(event.key)
             if spec_key == 'up':
@@ -455,6 +433,9 @@ while running:
             blues.clear()
             greens.clear()
             oranges.clear()
+            verific_blues.clear()
+            verific_greens.clear()
+            verific_oranges.clear()
             root = tk.Tk()
             root.withdraw()
             file_path = filedialog.askopenfilename(
@@ -470,14 +451,20 @@ while running:
                         rows = data['rows']
                         columns = data['columns']
                         for b in data['blues']:
-                            blues.append(Marks(0, 0, b['color'], len(blues),
-                                               False, False, b['block_row'], b['block_column']))
+                            if (b['block_row'], b['block_column']) not in verific_blues:
+                                blues.append(Marks(0, 0, b['color'], len(blues),
+                                                   False, False, b['block_row'], b['block_column']))
+                                verific_blues.append((b['block_row'], b['block_column']))
                         for g in data['greens']:
-                            greens.append(Marks(0, 0, g['color'], len(greens),
-                                               False, False, g['block_row'], g['block_column']))
+                            if (g['block_row'], g['block_column']) not in verific_greens:
+                                greens.append(Marks(0, 0, g['color'], len(greens),
+                                                   False, False, g['block_row'], g['block_column']))
+                                verific_greens.append((g['block_row'], g['block_column']))
                         for o in data['oranges']:
-                            oranges.append(Marks(0, 0, o['color'], len(oranges),
-                                               False, False, o['block_row'], o['block_column']))
+                            if (o['block_row'], o['block_column']) not in verific_oranges:
+                                oranges.append(Marks(0, 0, o['color'], len(oranges),
+                                                   False, False, o['block_row'], o['block_column']))
+                                verific_oranges.append((o['block_row'], o['block_column']))
             state = 'draw'
             block_draw(rows, columns)
     elif state == 'draw':
@@ -521,11 +508,36 @@ while running:
 
 
     elif state == 'save':
-        if back.button():
-            state = 'draw'
-        save_text.draw()
-        save_name_text.draw()
-        save_name_text = Text(save_name, w / 2, h / 2 + 100, (0, 0, 0), 50, 'center')
+        save_path = filedialog.asksaveasfilename(
+            initialdir=path,
+            title="JSON fájl mentése",
+            defaultextension=".json",
+            filetypes=[
+                ("JSON fájl", "*.json")
+            ]
+        )
+        if save_path:
+            saving_blues.clear()
+            saving_greens.clear()
+            saving_oranges.clear()
+            save_data = {}
+            for b2 in blues:
+                saving_blues.append(b2.saving_data())
+            for g2 in greens:
+                saving_greens.append(g2.saving_data())
+            for o2 in oranges:
+                saving_oranges.append(o2.saving_data())
+            save_data = {
+                'verification': 'sprang_sample',
+                'rows': rows,
+                'columns': columns,
+                'blues': saving_blues,
+                'greens': saving_greens,
+                'oranges': saving_oranges,
+            }
+            with open(save_path, 'w') as save_file:
+                json.dump(save_data, save_file, indent=4)
+        state = 'draw'
 
 
     clock.tick(24)
