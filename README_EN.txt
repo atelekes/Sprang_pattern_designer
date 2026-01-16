@@ -22,14 +22,12 @@ Controls / Navigation:
   - To change the number of rows and columns,
     hover the cursor over the corresponding label,
     then use the mouse wheel to set the desired value.
-- Click the Save button, enter the pattern name, and press Enter
-  to save the pattern in the 'saves' folder.
-- Saved patterns can be loaded and edited at any time via the Open menu.
-- ⚠️ WARNING! There is no automatic save.
-  Unsaved changes will be lost if you close the program
-  or open a new pattern.
+  - Saved patterns can be loaded and edited at any time via the Open menu.
+  - ⚠️ WARNING! There is no automatic save.
+    Unsaved changes will be lost if you close the program
+    or open a new pattern.
 
 Technical Details:
 - Uses embedded Python 3.13.5
 - Main program is written in Pygame
-- Tkinter is used for the file opening functionality
+- Tkinter is used for the file opening and saving functionality
