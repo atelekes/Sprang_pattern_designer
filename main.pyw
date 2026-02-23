@@ -6,7 +6,6 @@ from tkinter import filedialog
 
 class Text:
     def __init__(self, text, x, y, color=(0, 0, 0), size=100, pos='center', border=0, callback=None, surface='screen'):
-        super().__init__()
         self.text = text
         self.x = x
         self.y = y
@@ -786,3 +785,4 @@ while running:
 pygame.quit()
 pygame.mixer.quit()
 sys.exit()
+
