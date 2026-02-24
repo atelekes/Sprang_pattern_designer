@@ -4,15 +4,9 @@ This program is currently under development.
 I welcome user feedback and suggestions for improving the program.
 If you find a bug, please report it so I can fix it.
 
-Készítsd el a saját sprang mintádat gyorsan és egyszerűen.
-A program fejlesztés alatt áll.
-Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani.
-Szívesen fogadom a felhasználói visszajelzéseket és javaslatokat a program fejlesztésére.
-
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-[Click here to download the latest version! / Kattints ide a legfrissebb verzió letöltéséhez!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
+For Windows users:
+[Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
 
 For Mac users:
 1. [Download Python (programming language which the program uses) ](https://www.python.org/downloads/release/python-3135/)
