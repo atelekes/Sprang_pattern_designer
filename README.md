@@ -9,12 +9,18 @@ A program fejlesztés alatt áll.
 Ha rendellenes működést tapasztalsz, kérlek oszd meg, hogy tudjam javítani.
 Szívesen fogadom a felhasználói visszajelzéseket és javaslatokat a program fejlesztésére.
 
-[Click here to download the latest version! / Kattints ide a legfrissebb verzió letöltéséhez!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-!WARNING!
-The program only works on Windows 10 and Windows 11 operating systems.
+[Click here to download the latest version! / Kattints ide a legfrissebb verzió letöltéséhez!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
+
+For Mac users:
+[1. Download Python (programming language which the program uses) ](https://www.python.org/downloads/release/python-3135/)
+2. Afrer installation open termianal and paste in this: python3 -m pip install numpy, pygame-ce
+[3. Download the Mac version of the program](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0_macOS.zip)
+4. To run the program, double click on the main.pyw file
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 To run the program, simply double-click the start.bat file.
 When starting the program, it is completely normal for a black window to appear.
@@ -62,9 +68,6 @@ Technical details:
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-!FIGYELEM!
-A program csak Windows 10 és Windows 11 operációs rendszeren működik.
-
 A program futtatásához elegendő duplán rákattintani a start.bat fájlra.
 A program indításakor teljesen normális, hogy egy fekete ablak megjelenik.
 Pár másodpercen belül maga a program is megnyílik.
@@ -110,9 +113,6 @@ Technikai részletek:
  - Ezek mellett még a NumPy könyvtárat használja
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-!ACHTUNG!
-Das Programm funktioniert nur unter den Betriebssystemen Windows 10 und Windows 11.
 
 Zum Starten des Programms genügt ein Doppelklick auf die Datei start.bat.
 Beim Start des Programms ist es völlig normal, dass ein schwarzes Fenster erscheint.
@@ -160,9 +160,6 @@ Technische Details:
  - Zusätzlich wird die NumPy-Bibliothek verwendet
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-!¡ADVERTENCIA!
-El programa solo funciona en los sistemas operativos Windows 10 y Windows 11.
 
 Para ejecutar el programa, basta con hacer doble clic en el archivo start.bat.
 Al iniciar el programa, es completamente normal que aparezca una ventana negra.
