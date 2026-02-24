@@ -351,7 +351,7 @@ def en_button():
     global language, scene, draw
     language = 'en'
     scene = 'select'
-    create.update('Crete new')
+    create.update('Crete')
     load.update('Load')
     save.update('Save (F9)')
     screenshot.update('Screenshot (F10)')
@@ -361,7 +361,7 @@ def en_button():
     columnsText.update(str('Columns: ' + str(columns)))
     continueText.update(str('Continue current project'))
     sidebar_text.update('Show/Hide sidebar (F11)')
-    line_text.update('Show/Hide wholes (F12)')
+    line_text.update('Show/Hide holes (F12)')
     draw = True
 
 
@@ -503,7 +503,7 @@ Z_surf = S_font.render('Z', True, (0, 0, 0))
 hun = Text("Magyar", w/2-300, h/2, (0, 0, 0), 100, 'center', 10, hun_button)
 en = Text("English", w/2+300, h/2, (0, 0, 0), 100, 'center', 10, en_button)
 
-create = Text("Create new", w/2, h/2-60, (0, 0, 0), 100, 'center', 10, create_new_button)
+create = Text("Create", w/2, h/2-60, (0, 0, 0), 100, 'center', 10, create_new_button)
 load = Text("Load", w/2, h/2+60, (0, 0, 0), 100, 'center', 10, load_button)
 
 back = Text('Back', w-10, 10, (0, 0, 0), 50, 'topright', 5, back_button)
@@ -520,7 +520,7 @@ currCol = Text(str('column: ' + str(highlighted_column)), 155, 220, (0, 0, 0), 2
 continueText = Text('Continue current project', w/2, h/2 - 180, (0, 0, 0), 100, 'center', 10, continue_button)
 
 sidebar_text = Text('Show/Hide sidebar (F11)', 436, h-3, (0, 0, 0), 25, 'bottomleft')
-line_text = Text('Show/Hide wholes (F12)', 800, h-3, (0, 0, 0), 25, 'bottomleft')
+line_text = Text('Show/Hide holes (F12)', 800, h-3, (0, 0, 0), 25, 'bottomleft')
 
 
 while running:
@@ -712,8 +712,8 @@ while running:
             screen.blit(tool_surf, tool_surf.get_rect(topright=(w, 0)))
             if showBlockTip:
                 pygame.draw.rect(screen, BG_color, (0, h-31, w, 31))
-                pygame.draw.rect(screen, (164, 205, 57), (3, h - 28, 52, 25))
-                pygame.draw.rect(screen, (113, 197, 238), (86, h - 28, 52, 25))
+                pygame.draw.rect(screen, (113, 197, 238), (3, h - 28, 52, 25))
+                pygame.draw.rect(screen, (164, 205, 57), (86, h - 28, 52, 25))
                 pygame.draw.rect(screen, (250, 153, 12), (167, h - 28, 70, 25))
                 pygame.draw.rect(screen, (217, 104, 166), (267, h - 28, 35, 25))
                 pygame.draw.rect(screen, (162, 46, 33), (332, h - 28, 35, 25))
@@ -785,4 +785,3 @@ while running:
 pygame.quit()
 pygame.mixer.quit()
 sys.exit()
-
