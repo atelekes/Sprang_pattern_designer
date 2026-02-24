@@ -10,7 +10,7 @@ For Windows users:
 
 For Mac users:
 1. [Download Python (programming language which the program uses) ](https://www.python.org/downloads/release/python-3135/)
-2. After installing Python, open Terminal and runs: python3 -m pip install numpy pygame-ce
+2. After installing Python, open Terminal and run (these are required packages that the program uses): python3 -m pip install numpy pygame-ce
 3. [Download the Mac version of the program](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang.designer_V2.0_macOS.zip)
 4. To run the program, double click on the main_for_macOS.pyw file
 
