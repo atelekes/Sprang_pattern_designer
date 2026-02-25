@@ -190,7 +190,8 @@ class Block:
         if self.hover:
             self.x, self.y = grid_group[highlighted_ser_num].x, grid_group[highlighted_ser_num].y
         else:
-            if rows -1 >= self.row > -1 and columns - 1 >= self.column > -1:
+            if (rows -1 >= self.row > -1 and columns - 1 >= self.column > -1 and
+                    0 <= columns * self.row + self.column <= len(grid_group)):
                 self.x = grid_group[columns * self.row + self.column].x
                 self.y = grid_group[columns * self.row + self.column].y
         if (self.hover or (not self.hover and self.row <= rows -1 and self.column <= columns -1)) and self.row > -1 and self.column > -1:
@@ -218,7 +219,7 @@ class Block:
                                           3 * int(round(bl_height))))
 
     def update(self):
-        global isHovered, stitch_state, draw
+        global isHovered, stitch_state, draw, saved
         draw_block = True
         if self.hover:
             if pressed:
@@ -236,9 +237,11 @@ class Block:
                 if mouse_buttons[2]:
                     self.hover = True
                     isHovered = True
+                    saved = False
                 elif keydown == pygame.K_q:
                     self.stitch = not self.stitch
                     stitch_state = self.stitch
+                    saved = False
                 elif pressed:
                     blocks.pop(self.ser_num)
                     for b in blocks:
@@ -246,6 +249,7 @@ class Block:
                             b.ser_num -= 1
                     draw_block = False
                     draw = True
+                    saved = False
             else:
                 self.currRGB = self.rgb
         if draw_block:
@@ -318,10 +322,11 @@ def redraw():
 
 
 def add_block(color):
-    global isHovered
+    global isHovered, saved
     if not isHovered:
         blocks.append(Block(color, stitch_state, len(blocks)))
         isHovered = True
+    saved = False
 
 
 def update_blocks():
@@ -329,10 +334,11 @@ def update_blocks():
         b.update()
 
 
-def hun_button():
+def hun_button(change=True):
     global language, scene, draw
-    language = 'hun'
-    scene = 'select'
+    if change:
+        language = 'hun'
+        scene = 'select'
     create.update('Új létrehozása')
     load.update('Megnyitás')
     save.update('Mentés (F9)')
@@ -344,14 +350,17 @@ def hun_button():
     continueText.update('Jelenlegi projekt folytatása')
     sidebar_text.update('Menüsáv megjelenítése/eltüntetése (F11)')
     line_text.update('Lyukak megjelenítése/eltüntetése (F12)')
+    unsaved_prot.update('Kilépés mentés nélkül?')
+    yes.update('Igen')
     draw = True
 
 
-def en_button():
+def en_button(change=True):
     global language, scene, draw
-    language = 'en'
-    scene = 'select'
-    create.update('Crete')
+    if change:
+        language = 'en'
+        scene = 'select'
+    create.update('Create new')
     load.update('Load')
     save.update('Save (F9)')
     screenshot.update('Screenshot (F10)')
@@ -362,6 +371,8 @@ def en_button():
     continueText.update(str('Continue current project'))
     sidebar_text.update('Show/Hide sidebar (F11)')
     line_text.update('Show/Hide holes (F12)')
+    unsaved_prot.update('Exit without saving?')
+    yes.update('Yes')
     draw = True
 
 
@@ -394,6 +405,8 @@ def back_button():
         scene = 'select'
     elif scene == 'select':
         scene = 'lang'
+    elif scene == 'unsaved_prot':
+        scene = 'draw'
     draw = True
 
 
@@ -430,6 +443,45 @@ def continue_button():
     scene = 'draw'
     draw = True
 
+
+def resize():
+    global hun, en, create, load, back, backDraw, save, screenshot, rowsText, columnsText, \
+        sidebar_text, currRow, currCol, continueText, line_text
+    hun = Text("Magyar", w / 2 - 300, h / 2, (0, 0, 0), 100, 'center', 10, hun_button)
+    en = Text("English", w / 2 + 300, h / 2, (0, 0, 0), 100, 'center', 10, en_button)
+
+    create = Text("Create new", w / 2, h / 2 - 60, (0, 0, 0), 100, 'center', 10, create_new_button)
+    load = Text("Load", w / 2, h / 2 + 60, (0, 0, 0), 100, 'center', 10, load_button)
+
+    back = Text('Back', w - 10, 10, (0, 0, 0), 50, 'topright', 5, back_button)
+    backDraw = Text('Back', 155, 10, (0, 0, 0), 25, 'topright', 2, back_button, surface='tool_surf')
+    save = Text('Save', 155, 45, (0, 0, 0), 25, 'topright', 2, save_button, surface='tool_surf')
+    screenshot = Text('Screenshot', 155, 80, (0, 0, 0), 25, 'topright', 2, screenshot_button, surface='tool_surf')
+
+    rowsText = Text(str('Rows: ' + str(rows)), 155, 115, (0, 0, 0), 25, 'topright', 2, surface='tool_surf')
+    columnsText = Text(str('Columns: ' + str(columns)), 155, 150, (0, 0, 0), 25, 'topright', 2, surface='tool_surf')
+
+    currRow = Text(str('row: ' + str(highlighted_row)), 155, 185, (0, 0, 0), 25, 'topright', surface='tool_surf')
+    currCol = Text(str('column: ' + str(highlighted_column)), 155, 220, (0, 0, 0), 25, 'topright', surface='tool_surf')
+
+    continueText = Text('Continue current project', w / 2, h / 2 - 180, (0, 0, 0), 100, 'center', 10, continue_button)
+
+    sidebar_text = Text('Show/Hide sidebar (F11)', 436, h - 3, (0, 0, 0), 25, 'bottomleft')
+    line_text = Text('Show/Hide holes (F12)', 800, h - 3, (0, 0, 0), 25, 'bottomleft')
+
+    unsaved_prot = Text('Exit without saving?', w / 2, h / 2, (0, 0, 0), 100, 'center')
+    yes = Text('Yes', w / 2, h / 2 - 60, (0, 0, 0), 100, 'center', 10, yes_button)
+
+    if language == 'hun':
+        hun_button(False)
+    else:
+        en_button(False)
+
+
+def yes_button():
+    global  running
+    running = False
+
 path = os.path.dirname(__file__)
 scene = 'lang'
 language = None
@@ -443,7 +495,6 @@ rows = 17
 columns = 36
 x_shift = 0
 y_shift = 0
-w, h = (1366, 698)
 BG_color = (255, 255, 255)
 
 highlighted_ser_num = 0
@@ -458,13 +509,11 @@ prevColumns = columns
 
 clock = pygame.time.Clock()
 pygame.init()
+info = pygame.display.Info()
+screen = pygame.display.set_mode((info.current_w-10, info.current_h-70), pygame.RESIZABLE)
 
-screen = pygame.display.set_mode((w, h), pygame.RESIZABLE)
 pygame.display.set_caption("Sprang designer 2.0")
 
-hwnd = pygame.display.get_wm_info()["window"]
-SW_MAXIMIZE = 3
-ctypes.windll.user32.ShowWindow(hwnd, SW_MAXIMIZE)
 w, h = pygame.display.get_window_size()
 
 grid_group = []
@@ -475,7 +524,7 @@ lines = []
 
 running = True
 generate = False
-draw = False
+draw = True
 isPressed = False
 pressed = False
 isHovered = False
@@ -485,8 +534,8 @@ wheelButton = False
 prevWheelButton = False
 isOpenedProject = False
 isHighlighted = False
-showBlockTip = False
 showLines = True
+saved = True
 
 block_font = pygame.font.Font(None, 25)
 block_surf = block_font.render(str("     "
@@ -503,7 +552,7 @@ Z_surf = S_font.render('Z', True, (0, 0, 0))
 hun = Text("Magyar", w/2-300, h/2, (0, 0, 0), 100, 'center', 10, hun_button)
 en = Text("English", w/2+300, h/2, (0, 0, 0), 100, 'center', 10, en_button)
 
-create = Text("Create", w/2, h/2-60, (0, 0, 0), 100, 'center', 10, create_new_button)
+create = Text("Create new", w/2, h/2-60, (0, 0, 0), 100, 'center', 10, create_new_button)
 load = Text("Load", w/2, h/2+60, (0, 0, 0), 100, 'center', 10, load_button)
 
 back = Text('Back', w-10, 10, (0, 0, 0), 50, 'topright', 5, back_button)
@@ -522,6 +571,8 @@ continueText = Text('Continue current project', w/2, h/2 - 180, (0, 0, 0), 100, 
 sidebar_text = Text('Show/Hide sidebar (F11)', 436, h-3, (0, 0, 0), 25, 'bottomleft')
 line_text = Text('Show/Hide holes (F12)', 800, h-3, (0, 0, 0), 25, 'bottomleft')
 
+unsaved_prot = Text('Exit without saving?', w/2, h/2, (0, 0, 0), 100, 'center')
+yes = Text('Yes', w/2, h/2+100, (0, 0, 0), 100, 'center', 10, yes_button)
 
 while running:
     mouse_pos = pygame.mouse.get_pos()
@@ -563,23 +614,29 @@ while running:
         if scene == 'draw':
             redraw()
         draw = False
-        showBlockTip = True
 
 
     for event in events:
         if event.type == pygame.QUIT:
-            running = False
+            if saved:
+                running = False
+            else:
+                scene = 'unsaved_prot'
+                draw = True
 
         elif event.type == pygame.VIDEORESIZE:
             w, h = pygame.display.get_window_size()
+            resize()
             redraw()
 
         elif event.type == pygame.MOUSEWHEEL and scene == 'draw':
             text_mouse = (mouse_pos[0] - w + 165, mouse_pos[1])
             if rowsText.rect.collidepoint(text_mouse) and showTools:
                 rows = np.clip(rows + event.y * 2, 4, 100000)
+                saved = False
             elif columnsText.rect.collidepoint(text_mouse) and showTools:
                 columns = np.clip(columns + event.y * 2, 4, 1000)
+                saved = False
             elif keys[pygame.K_LSHIFT]:
                 x_shift += event.y * 20
                 if scene == 'draw':
@@ -610,18 +667,22 @@ while running:
                     for b in blocks:
                         b.row -= 1
                         draw = True
+                        saved = False
                 elif keydown == pygame.K_DOWN:
                     for b in blocks:
                         b.row += 1
                         draw = True
+                        saved = False
                 elif keydown == pygame.K_LEFT:
                     for b in blocks:
                         b.column -= 1
                         draw = True
+                        saved = False
                 elif keydown == pygame.K_RIGHT:
                     for b in blocks:
                         b.column += 1
                         draw = True
+                        saved = False
                 elif keydown == pygame.K_F12:
                     showLines = not showLines
                     draw = True
@@ -640,6 +701,7 @@ while running:
                             else:
                                 S_stitches.remove((grid_group[highlighted_ser_num + 1].row, grid_group[highlighted_ser_num + 1].column))
                             grid_group[highlighted_ser_num+1].stitch = not grid_group[highlighted_ser_num+1].stitch
+                        saved = False
                         redraw()
 
                     elif event.key == pygame.K_1:
@@ -710,24 +772,23 @@ while running:
             draw = True
         if showTools:
             screen.blit(tool_surf, tool_surf.get_rect(topright=(w, 0)))
-            if showBlockTip:
-                pygame.draw.rect(screen, BG_color, (0, h-31, w, 31))
-                pygame.draw.rect(screen, (113, 197, 238), (3, h - 28, 52, 25))
-                pygame.draw.rect(screen, (164, 205, 57), (86, h - 28, 52, 25))
-                pygame.draw.rect(screen, (250, 153, 12), (167, h - 28, 70, 25))
-                pygame.draw.rect(screen, (217, 104, 166), (267, h - 28, 35, 25))
-                pygame.draw.rect(screen, (162, 46, 33), (332, h - 28, 35, 25))
-                pygame.draw.rect(screen, (178, 154, 200), (397, h - 28, 35, 25))
-                screen.blit(block_surf, block_surf.get_rect(bottomleft=(0, h-3)))
-                showBlockTip = False
-                sidebar_text.draw()
-                line_text.draw()
+            pygame.draw.rect(screen, BG_color, (0, h-31, w, 31))
+            pygame.draw.rect(screen, (113, 197, 238), (3, h - 28, 52, 25))
+            pygame.draw.rect(screen, (164, 205, 57), (86, h - 28, 52, 25))
+            pygame.draw.rect(screen, (250, 153, 12), (167, h - 28, 70, 25))
+            pygame.draw.rect(screen, (217, 104, 166), (267, h - 28, 35, 25))
+            pygame.draw.rect(screen, (162, 46, 33), (332, h - 28, 35, 25))
+            pygame.draw.rect(screen, (178, 154, 200), (397, h - 28, 35, 25))
+            screen.blit(block_surf, block_surf.get_rect(bottomleft=(0, h-3)))
+            showBlockTip = False
+            sidebar_text.draw()
+            line_text.draw()
+
     elif scene == 'save':
         root = tk.Tk()
         root.withdraw()
         file_path = filedialog.asksaveasfilename(
-            initialdir=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-                                    'saves'),
+            initialdir=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'saves'),
             title="Save",
             defaultextension=".json",
             initialfile=loaded_name,
@@ -736,6 +797,7 @@ while running:
             ]
         )
         if file_path:
+            loaded_name = os.path.basename(file_path)
             save_datas = {}
             block_datas = []
             for b in blocks:
@@ -751,6 +813,7 @@ while running:
                 json.dump(save_datas, save_file, indent=4)
         root.destroy()
         scene = 'draw'
+        saved = True
 
     elif scene == 'load':
         blocks.clear()
@@ -780,6 +843,13 @@ while running:
         isOpenedProject = True
         generate = True
         scene = 'draw'
+        saved = True
+
+    elif scene == 'unsaved_prot':
+        back.draw()
+        unsaved_prot.draw()
+        yes.draw()
+
     clock.tick(30)
     pygame.display.update()
 pygame.quit()
