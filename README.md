@@ -16,9 +16,8 @@ For Mac users:
 6. Right click on the downloaded Sprang designer_V2.0_macOS.zip file and select "Quick look"
 7. On the pop up window, press "Uncompress"
 8. Open the uncompressed folder
-9. Open Terminal again and type (but do not press Enter yet): "chmod +x "(Do not include the quotation marks, leave a space at the end.)
-10. Drag the start.command file from the program folder into the Terminal window — this will paste the file’s path automatically.
-11. You’re ready! Now simply double-click start.command and the program should open.
+9. To run the program, open Terminal again and type (but do not press Enter yet): "python3 "(Do not include the quotation marks, leave a space at the end.)
+10. Drag the main_for_macOS.py file from the program folder into the Terminal window — this will paste the file’s path automatically, and press Enter, the program should open.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
