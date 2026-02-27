@@ -5,6 +5,10 @@ I welcome user feedback and suggestions for improving the program.
 If you find a bug, please report it so I can fix it.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+I’ll rewrite the code using a better programming framework that can work natively on all platforms, not just Windows, but it will take a few months.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 For Windows users:
 [Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
 
