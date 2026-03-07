@@ -9,7 +9,7 @@ A program automatikusan teljes képernyős módban indul.
 Kezelés / irányítás:
 - Azok a szövegek, amelyekkel interaktálni lehet, mindig kerettel vannak jelölve.
 - A Rajzolás menüben:
-  - A mintaelemek kiválasztásához az 1, 2, 3, 4, 5, 6 billentyűk használhatók.
+  - A mintaelemek kiválasztásához az 1, 2, 3, 4, 5, 6, 7 billentyűk használhatók.
     Ilyenkor a  program automatikusan a rács kurzorhoz legközelebbi négyzetéhez illeszti az mintaelemet.
     A hely fixálásához kattintson a bal egérgombbal.
   - Már elhelyezett mintaelem eltávolításához kattintson rá a bal egérgombbal.
@@ -44,3 +44,4 @@ Technikai részletek:
  - A fő program Pygame Community Edition-ben készült
  - A megnyitás és mentés funkció Tkinterrel van megvalósítva
  - Ezek mellett még a NumPy könyvtárat használja
+
