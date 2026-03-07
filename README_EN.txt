@@ -9,7 +9,7 @@ The program starts automatically in full-screen mode.
 Controls / navigation:
 - Texts that can be interacted with are always marked with a border.
 - In the Drawing menu:
-  - To select pattern elements, use the 1, 2, 3, 4, 5, 6 keys.
+  - To select pattern elements, use the 1, 2, 3, 4, 5, 6, 7 keys.
     The program automatically snaps the pattern element to the grid square closest to the cursor.
     To fix the position, click with the left mouse button.
   - To remove an already placed pattern element, click on it with the left mouse button.
@@ -44,3 +44,4 @@ Technical details:
  - The main program was created using Pygame Community Edition
  - The open and save functions are implemented using Tkinter
  - In addition, the NumPy library is used
+
