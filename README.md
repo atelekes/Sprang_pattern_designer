@@ -10,18 +10,7 @@ I’ll rewrite the code using a better programming framework that can work nativ
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 For Windows users:
-[Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.0.zip)
-
-For Mac users:
-1. [Download Python (programming language which the program uses) ](https://www.python.org/downloads/release/python-3135/)
-2. Open the Terminal
-3. Paste this line of code and press Enter: "python3 -m pip install numpy pygame-ce" (Do not include the quotation marks)
-5. [Download the Mac version of the program](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang.designer_V2.0_macOS.zip)
-6. Right click on the downloaded Sprang designer_V2.0_macOS.zip file and select "Quick look"
-7. On the pop up window, press "Uncompress"
-8. Open the uncompressed folder
-9. To run the program, open Terminal again and type (but do not press Enter yet): "python3 "(Do not include the quotation marks, leave a space at the end.)
-10. Drag the main_for_macOS.py file from the program folder into the Terminal window — this will paste the file’s path automatically, and press Enter, the program should open.
+[Click here to download the latest version!](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_designer_V2.1.zip)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -33,7 +22,7 @@ The program starts automatically in full-screen mode.
 Controls / navigation:
 - Texts that can be interacted with are always marked with a border.
 - In the Drawing menu:
-  - To select pattern elements, use the 1, 2, 3, 4, 5, 6 keys.
+  - To select pattern elements, use the 1, 2, 3, 4, 5, 6, 7 keys.
     The program automatically snaps the pattern element to the grid square closest to the cursor.
     To fix the position, click with the left mouse button.
   - To remove an already placed pattern element, click on it with the left mouse button.
@@ -79,7 +68,7 @@ A program automatikusan teljes képernyős módban indul.
 Kezelés / irányítás:
 - Azok a szövegek, amelyekkel interaktálni lehet, mindig kerettel vannak jelölve.
 - A Rajzolás menüben:
-  - A mintaelemek kiválasztásához az 1, 2, 3, 4, 5, 6 billentyűk használhatók.
+  - A mintaelemek kiválasztásához az 1, 2, 3, 4, 5, 6, 7 billentyűk használhatók.
     Ilyenkor a  program automatikusan a rács kurzorhoz legközelebbi négyzetéhez illeszti az mintaelemet.
     A hely fixálásához kattintson a bal egérgombbal.
   - Már elhelyezett mintaelem eltávolításához kattintson rá a bal egérgombbal.
@@ -125,7 +114,7 @@ Das Programm startet automatisch im Vollbildmodus.
 Bedienung / Steuerung:
 - Texte, mit denen interagiert werden kann, sind immer durch einen Rahmen gekennzeichnet.
 - Im Menü Zeichnen:
-  - Zur Auswahl der Musterelemente können die Tasten 1, 2, 3, 4, 5, 6 verwendet werden.
+  - Zur Auswahl der Musterelemente können die Tasten 1, 2, 3, 4, 5, 6, 7 verwendet werden.
     Dabei richtet das Programm das Musterelement automatisch am nächstgelegenen Rasterfeld zum Cursor aus.
     Zum Fixieren der Position klicken Sie mit der linken Maustaste.
   - Zum Entfernen eines bereits platzierten Musterelements klicken Sie mit der linken Maustaste darauf.
@@ -172,7 +161,7 @@ El programa se inicia automáticamente en modo de pantalla completa.
 Control / manejo:
 - Los textos con los que se puede interactuar siempre están marcados con un borde.
 - En el menú Dibujo:
-  - Para seleccionar los elementos del patrón, se pueden usar las teclas 1, 2, 3, 4, 5, 6.
+  - Para seleccionar los elementos del patrón, se pueden usar las teclas 1, 2, 3, 4, 5, 6, 7.
     El programa ajusta automáticamente el elemento del patrón al cuadrado de la cuadrícula más cercano al cursor.
     Para fijar la posición, haga clic con el botón izquierdo del ratón.
   - Para eliminar un elemento del patrón ya colocado, haga clic sobre él con el botón izquierdo del ratón.
