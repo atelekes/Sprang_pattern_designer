@@ -9,7 +9,7 @@ Das Programm startet automatisch im Vollbildmodus.
 Bedienung / Steuerung:
 - Texte, mit denen interagiert werden kann, sind immer durch einen Rahmen gekennzeichnet.
 - Im Menü Zeichnen:
-  - Zur Auswahl der Musterelemente können die Tasten 1, 2, 3, 4, 5, 6 verwendet werden.
+  - Zur Auswahl der Musterelemente können die Tasten 1, 2, 3, 4, 5, 6, 7 verwendet werden.
     Dabei richtet das Programm das Musterelement automatisch am nächstgelegenen Rasterfeld zum Cursor aus.
     Zum Fixieren der Position klicken Sie mit der linken Maustaste.
   - Zum Entfernen eines bereits platzierten Musterelements klicken Sie mit der linken Maustaste darauf.
@@ -44,4 +44,5 @@ Technische Details:
  - Verwendet Embedded Python Version 3.13.5
  - Das Hauptprogramm wurde mit der Pygame Community Edition erstellt
  - Die Öffnen- und Speichern-Funktionen sind mit Tkinter umgesetzt
+
  - Zusätzlich wird die NumPy-Bibliothek verwendet
