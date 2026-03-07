@@ -9,7 +9,7 @@ El programa se inicia automáticamente en modo de pantalla completa.
 Control / manejo:
 - Los textos con los que se puede interactuar siempre están marcados con un borde.
 - En el menú Dibujo:
-  - Para seleccionar los elementos del patrón, se pueden usar las teclas 1, 2, 3, 4, 5, 6.
+  - Para seleccionar los elementos del patrón, se pueden usar las teclas 1, 2, 3, 4, 5, 6, 7.
     El programa ajusta automáticamente el elemento del patrón al cuadrado de la cuadrícula más cercano al cursor.
     Para fijar la posición, haga clic con el botón izquierdo del ratón.
   - Para eliminar un elemento del patrón ya colocado, haga clic sobre él con el botón izquierdo del ratón.
@@ -44,4 +44,5 @@ Detalles técnicos:
  - Utiliza Embedded Python versión 3.13.5
  - El programa principal fue creado con Pygame Community Edition
  - Las funciones de abrir y guardar están implementadas con Tkinter
+
  - Además, se utiliza la biblioteca NumPy
