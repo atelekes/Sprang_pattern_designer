@@ -19,7 +19,7 @@ I welcome user feedback and suggestions for improving the program.
   
 - **Built-in Helper**: Includes an overlay with all keybindings
   
-  <img width="1920" height="1042" alt="Helper menu" src="https://github.com/user-attachments/assets/0646b58e-0883-4e4e-bc28-7c21feef5af1" />
+  <img width="1920" height="1021" alt="Helper" src="https://github.com/user-attachments/assets/cc175485-9a16-40a1-b4f3-63ffac05256f" />
 
 - **Improved Save System**:
   - Saves the full pattern regardless of your viewing or zoom position.
