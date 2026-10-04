@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dbmfm26e778u"]
+
+[ext_resource type="Script" uid="uid://vb76f57xk316" path="res://scenes/marks.gd" id="1_sn4pr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn4pr"]
+
+[node name="Marks" type="Node2D" unique_id=988852368]
+script = ExtResource("1_sn4pr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=563362733]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=954063357]
+shape = SubResource("RectangleShape2D_sn4pr")

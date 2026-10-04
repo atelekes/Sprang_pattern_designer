@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://c5ves77n0if2u"]
+
+[ext_resource type="Script" uid="uid://w140ksbh81b8" path="res://scenes/helper.gd" id="1_463n5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmpev"]
+line_spacing = 0.0
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_463n5"]
+line_spacing = 0.0
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0ap8"]
+line_spacing = 0.0
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_bitno"]
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5edt"]
+line_spacing = 1.0
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvn3v"]
+line_spacing = 1.0
+font_size = 29
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovgsc"]
+line_spacing = 1.0
+font_size = 29
+
+[node name="helper" type="Control" unique_id=1680732105]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_463n5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1623090780]
+layout_mode = 0
+offset_right = 4649.0
+offset_bottom = 2866.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1822009859]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 192.0
+offset_bottom = 731.0
+text = "Editor keybinding:
+-Change the number of
+  rows/columns
+-Pan:
+-Zoom:
+-Change type (Z&S)
+-Place mark
+-Delete mark
+-Pick up mark
+-Select/unselect single mark
+-Box selection
+-Copy selected marks
+-Paste selected marks
+-Delete selected marks
+
+-Cancel hovered or selected marks
+-Pick up selected marks
+-Save
+-Night mode
+-Hide sidepanel
+-Vertical mirror
+-Horizontal mirror
+-Row tracker blocks every editing feature
+-Row tracker down
+-Row tracker up"
+label_settings = SubResource("LabelSettings_fmpev")
+
+[node name="Label2" type="Label" parent="." unique_id=555684840]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 10.0
+offset_right = 777.0
+offset_bottom = 731.0
+text = "
+Use the small arrows on the side panel
+or type the number in
+Hold Middle Mouse Button + drag
+Mosue Wheel
+Q (while hovered)
+Left Mouse Button
+Left Mouse Button (while hovered)
+Right Mouse Button
+CTRL+Left Mouse Button (while hovered)
+Left Mouse Button + drag
+CTRL+C
+CTRL+V
+Del or Backspace or
+Left Mouse Button on any selected mark
+ESC
+Right Mouse Button on any selected mark
+CTRL+S
+N
+H
+Left/Right Arrow (during pick up)
+Up/Down Arrow (during pick up)
+
+Down Arrow
+Up Arrow"
+label_settings = SubResource("LabelSettings_463n5")
+
+[node name="Label3" type="Label" parent="." unique_id=1052915805]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 565.0
+offset_right = 157.0
+offset_bottom = 768.0
+text = "1
+2
+3"
+label_settings = SubResource("LabelSettings_j0ap8")
+
+[node name="Label4" type="Label" parent="." unique_id=2102750007]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 565.0
+offset_right = 299.0
+offset_bottom = 768.0
+text = "4
+5
+6
+7"
+label_settings = SubResource("LabelSettings_j0ap8")
+
+[node name="Label5" type="Label" parent="." unique_id=1734124524]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 10.0
+offset_right = 702.0
+offset_bottom = 50.0
+text = "Chart"
+label_settings = SubResource("LabelSettings_bitno")
+
+[node name="Label6" type="Label" parent="." unique_id=764670934]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 10.0
+offset_right = 874.0
+offset_bottom = 460.0
+text = "Written
+\"P\"
+\"L\"
+\"R\"
+\"D\"
+\"P(b)\"
+\"P(f)\"
+\"P(a)\"
+
+
+"
+label_settings = SubResource("LabelSettings_j5edt")
+
+[node name="Label8" type="Label" parent="." unique_id=580166460]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 10.0
+offset_right = 1264.0
+offset_bottom = 385.0
+text = "Explanation
+Plain Stitch in Z
+Left Edge Stitch in Z
+Right Edge Stitch in Z
+Double Stitch in Z
+Z Stitch on Two Back Threads
+Z Stitch on Two Front Threads
+Awkward Stitch in Z"
+label_settings = SubResource("LabelSettings_j5edt")
+
+[node name="Label7" type="Label" parent="." unique_id=1841314415]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 392.0
+offset_right = 805.0
+offset_bottom = 678.0
+text = "\"P\"
+\"L\"
+\"R\"
+\"D\"
+\"P(b)\"
+\"P(f)\"
+\"P(a)\""
+label_settings = SubResource("LabelSettings_bvn3v")
+
+[node name="Label9" type="Label" parent="." unique_id=922824691]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 392.0
+offset_right = 1220.0
+offset_bottom = 727.0
+text = "Plain Stitch in S
+Left Edge Stitch in S
+Right Edge Stitch in S
+Double Stitch in S
+S Stitch on Two Back Threads
+S Stitch on Two Front Threads
+Awkward Stitch in S
+
+"
+label_settings = SubResource("LabelSettings_ovgsc")
+
+[node name="Back" type="Button" parent="." unique_id=1913519849]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Back (F1/ESC)"
+
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]

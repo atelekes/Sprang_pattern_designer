@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://85vy3v8p3r4s"]
+
+[ext_resource type="Script" uid="uid://dexpse1dci77p" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+
+[node name="MainMenu" type="Control" unique_id=1356630588]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1705176744]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -33.0
+offset_right = 78.765015
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Create" type="Button" parent="VBoxContainer" unique_id=289625915]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Create New Project"
+
+[node name="Load" type="Button" parent="VBoxContainer" unique_id=246463642]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Load Project"
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=856183121]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.json")
+
+[connection signal="button_down" from="VBoxContainer/Create" to="." method="_on_create_button_down"]
+[connection signal="button_down" from="VBoxContainer/Load" to="." method="_on_load_button_down"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

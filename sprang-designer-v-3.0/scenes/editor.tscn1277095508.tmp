@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bcj62fhkds1r3"]
+
+[ext_resource type="Script" uid="uid://755t2jihsj05" path="res://scenes/editor_ctrl.gd" id="1_b1cmn"]
+[ext_resource type="Script" uid="uid://cnsq8ofslqrnm" path="res://scenes/grid.gd" id="2_pxqd5"]
+[ext_resource type="Script" uid="uid://ck8hoqkyp6v4y" path="res://scenes/camera.gd" id="3_ba0ut"]
+
+[node name="Editor" type="Node2D" unique_id=1001206632]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1895577808]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1914165629]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_b1cmn")
+
+[node name="UI" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=299897646]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_bottom = 120.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="RowsH" type="HBoxContainer" parent="CanvasLayer/Control/UI" unique_id=12315718]
+layout_mode = 2
+alignment = 2
+
+[node name="RowsSpinBox" type="SpinBox" parent="CanvasLayer/Control/UI/RowsH" unique_id=200483395]
+layout_mode = 2
+max_value = 10000.0
+value = 40.0
+rounded = true
+
+[node name="RowsLabel" type="Label" parent="CanvasLayer/Control/UI/RowsH/RowsSpinBox" unique_id=26566243]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 27.0
+text = "Rows:"
+
+[node name="ColumnsH" type="HBoxContainer" parent="CanvasLayer/Control/UI" unique_id=104788025]
+layout_mode = 2
+alignment = 2
+
+[node name="ColumnsSpinBox" type="SpinBox" parent="CanvasLayer/Control/UI/ColumnsH" unique_id=1044855545]
+layout_mode = 2
+max_value = 10000.0
+value = 40.0
+rounded = true
+
+[node name="ColumnsLabel" type="Label" parent="CanvasLayer/Control/UI/ColumnsH/ColumnsSpinBox" unique_id=1501710157]
+layout_mode = 0
+offset_left = -74.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 27.0
+text = "columns:"
+horizontal_alignment = 2
+
+[node name="CurrentRow" type="Label" parent="CanvasLayer/Control/UI" unique_id=1457352509]
+layout_mode = 2
+text = "Row: -"
+horizontal_alignment = 2
+
+[node name="CurrentColumn" type="Label" parent="CanvasLayer/Control/UI" unique_id=193148287]
+layout_mode = 2
+text = "Column: -"
+horizontal_alignment = 2
+
+[node name="NightMode" type="CheckButton" parent="CanvasLayer/Control/UI" unique_id=879286775]
+layout_mode = 2
+button_pressed = true
+text = "Night mode"
+
+[node name="ImageSave" type="Button" parent="CanvasLayer/Control/UI" unique_id=818053591]
+layout_mode = 2
+text = "Save"
+
+[node name="Grid" type="Node2D" parent="." unique_id=432232291]
+script = ExtResource("2_pxqd5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1091523108]
+script = ExtResource("3_ba0ut")
+
+[node name="SaveDialog" type="FileDialog" parent="." unique_id=278006426]
+filters = PackedStringArray("*.png")
+
+[node name="CaptureViewport" type="SubViewport" parent="." unique_id=495206934]
+render_target_update_mode = 1
+
+[connection signal="value_changed" from="CanvasLayer/Control/UI/RowsH/RowsSpinBox" to="CanvasLayer/Control" method="_on_rows_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/UI/ColumnsH/ColumnsSpinBox" to="CanvasLayer/Control" method="_on_columns_value_changed"]
+[connection signal="toggled" from="CanvasLayer/Control/UI/NightMode" to="Grid" method="_night_mode_button_toggled"]
+[connection signal="button_down" from="CanvasLayer/Control/UI/ImageSave" to="Grid" method="_on_image_save_button_down"]
+[connection signal="file_selected" from="SaveDialog" to="Grid" method="_on_save_dialog_file_selected"]
