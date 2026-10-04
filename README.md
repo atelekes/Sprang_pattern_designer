@@ -12,14 +12,14 @@ I welcome user feedback and suggestions for improving the program.
 
 - **Modern UI**: Comes with a much cleaner, user-friendly interface and a built-in **Night Mode**.
 
-<img width="1919" height="1017" alt="Main interface" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
+<img alt="Main interface" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
 
 
 - **Multi-Selection & Editing**: Select multiple charts or nodes to *move*, *delete*, *mirror* or *copy-paste* them easily.
   
 - **Built-in Helper**: Includes an overlay with all keybindings
   
-  <img width="1920" height="1021" alt="Helper" src="https://github.com/user-attachments/assets/cc175485-9a16-40a1-b4f3-63ffac05256f" />
+  <img alt="Helper" src="https://github.com/user-attachments/assets/cc175485-9a16-40a1-b4f3-63ffac05256f" />
 
 - **Improved Save System**:
   - Saves the full pattern regardless of your viewing or zoom position.
@@ -28,7 +28,7 @@ I welcome user feedback and suggestions for improving the program.
     
  - **Interactive Row Tracker**: Darkens every row except the active one to help align your eyes while weaving.
 
-  <img width="1920" height="1007" alt="Row tracker" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
+  <img alt="Row tracker" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
 
 ---
 
