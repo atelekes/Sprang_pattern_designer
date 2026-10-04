@@ -8,29 +8,27 @@ I welcome user feedback and suggestions for improving the program.
 
 ## Features
 
-- Now it's available on Linux and macOS too.
+- **Cross-Platform**: Now it's available on **Windows** **Linux** and **macOS**.
 
-- The new version comes with a much cleaner and user-friendly interface.
+- **Modern UI**: Comes with a much cleaner, user-friendly interface and a built-in **Night Mode**.
 
-- It has night mode.
-
-<img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
+<img width="1919" height="1017" alt="Main interface" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
 
 
-- It has lots of cool and useful features, such as:
-  - You are able to select multiple charts and move, delete and even copy-paste them!
-  - It has a built-in helper, with all keybindings
+- **Multi-Selection & Editing**: Select multiple charts or nodes to move, delete, or copy-paste them easily.
   
-  <img width="1920" height="1042" alt="image" src="https://github.com/user-attachments/assets/0646b58e-0883-4e4e-bc28-7c21feef5af1" />
+- **Built-in Helper**: Includes an overlay with all keybindings
+  
+  <img width="1920" height="1042" alt="Helper menu" src="https://github.com/user-attachments/assets/0646b58e-0883-4e4e-bc28-7c21feef5af1" />
 
-  - It has improved saving
-    - Now it saves the full pattern regardless of the viewing position
-    - When saving, it creates a PNG image which contains every detail of the pattern, so this can be used for loading too.
-    - ⚠️ ATTENTION! The image cannot be sent via messaging (e.g. Messenger, WhatsApp, etc.), because they compress the image in a lossy way, so you should send the JSON file or compress the image into a ZIP file.
+- **Improved Save System**:
+  - Saves the full pattern regardless of your viewing or zoom position.
+  - Generates a PNG image containing pattern metadata, which can also be used for loading patterns back into the app.
+  - ⚠️️ **ATTENTION!** Do *not* send the PNG file via messaging apps (e.g. Messenger, WhatsApp, etc.), as they compress images in a lossy way and corrupt the saved pattern data. Always send the `.json` file or compress the PNG into a `.zip` archive.
     
-  - It has a built-in row tracker, which darkens every row except one to help align your eyes
+ - **Interactive Row Tracker**: Darkens every row except the active one to help align your eyes while weaving.
 
-  <img width="1920" height="1007" alt="image" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
+  <img width="1920" height="1007" alt="Row tracker" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
 
 ---
 
@@ -63,7 +61,7 @@ To allow the app to run:
 ## Downloads
 Select the appropriate version for your operating system:
 
-| Platform | Direct Download |
+| Platform | Download |
 | :--- | :--- |
 | ⊞ **Windows** | [Sprang_Designer_V3.0_win.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_win.zip) |
 | 🐧 **Linux** | [Sprang_Designer_V3.0_linux.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_linux.zip) |
@@ -75,4 +73,4 @@ Select the appropriate version for your operating system:
 
 ## License
 
-Distributed under the GNU General Public License v3.0 (GPL-3.0). See [licenses](https://github.com/atelekes/Sprang_pattern_designer/blob/main/LICENSE) for more information.
+Distributed under the GNU General Public License v3.0 (GPL-3.0). See [LICENSE](https://github.com/atelekes/Sprang_pattern_designer/blob/main/LICENSE) for more information.
