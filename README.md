@@ -12,6 +12,8 @@ I welcome user feedback and suggestions for improving the program.
 
 - The new version comes with a much cleaner and user-friendly interface.
 
+- It has night mode.
+
 <img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
 
 
@@ -68,3 +70,9 @@ Select the appropriate version for your operating system:
 | 🍎 **macOS (universal)** | [Sprang_Designer_V3.0_macOS.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_macOS.zip) |
 
 > 💡 *To view all previous releases, changelogs, and source archives, visit the [GitHub Releases](https://github.com/atelekes/Sprang_pattern_designer/releases) page.*
+
+---
+
+## License
+
+Distributed under the GNU General Public License v3.0 (GPL-3.0). See [licenses](https://github.com/atelekes/Sprang_pattern_designer/blob/main/LICENSE) for more information.
