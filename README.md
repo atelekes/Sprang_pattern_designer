@@ -26,5 +26,16 @@ IT has lots of cool and useful features, such as:
   <img width="1920" height="1007" alt="image" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+---
+## Downloads
+
+Select the appropriate version for your operating system:
+
+| Platform | Direct Download |
+| :--- | :--- |
+| 🪟 **Windows** | [Sprang_Designer_V3.0_win.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_win.zip) |
+| 🐧 **Linux** | [Sprang_Designer_V3.0_linux.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_linux.zip) |
+| 🍎 **macOS (universal)** | [Sprang_Designer_V3.0_macOS.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_macOS.zip) |
+
+> 💡 *To view all previous releases, changelogs, and source archives, visit the [GitHub Releases](https://github.com/atelekes/Sprang_pattern_designer/releases) page.*
 
