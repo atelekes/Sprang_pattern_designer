@@ -15,7 +15,7 @@ I welcome user feedback and suggestions for improving the program.
 <img width="1919" height="1017" alt="Main interface" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
 
 
-- **Multi-Selection & Editing**: Select multiple charts or nodes to move, delete, or copy-paste them easily.
+- **Multi-Selection & Editing**: Select multiple charts or nodes to *move*, *delete*, *mirror* or *copy-paste* them easily.
   
 - **Built-in Helper**: Includes an overlay with all keybindings
   
