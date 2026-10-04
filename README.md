@@ -1,4 +1,4 @@
-# Sprang_pattern_designer
+# Sprang Designer
 Create your own sprang pattern quickly and easily.
 This program is currently under development. 
 I welcome user feedback and suggestions for improving the program.
@@ -8,12 +8,14 @@ I welcome user feedback and suggestions for improving the program.
 
 ## Features
 
-The new version comes with a much cleaner and user-friendly interface.
+- Now it's available on Linux and macOS too.
+
+- The new version comes with a much cleaner and user-friendly interface.
 
 <img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
 
 
-It has lots of cool and useful features, such as:
+- It has lots of cool and useful features, such as:
   - You are able to select multiple charts and move, delete and even copy-paste them!
   - It has a built-in helper, with all keybindings
   
@@ -21,7 +23,7 @@ It has lots of cool and useful features, such as:
 
   - It has improved saving
     - Now it saves the full pattern regardless of the viewing position
-    - When saving, it creates a PNG image which contains every detail of the pattern, so this can be used at loading too.
+    - When saving, it creates a PNG image which contains every detail of the pattern, so this can be used for loading too.
     - ⚠️ ATTENTION! The image cannot be sent via messaging (e.g. Messenger, WhatsApp, etc.), because they compress the image in a lossy way, so you should send the JSON file or compress the image into a ZIP file.
     
   - It has a built-in row tracker, which darkens every row except one to help align your eyes
@@ -56,7 +58,7 @@ To allow the app to run:
 
 ---
 
-### Downloads
+## Downloads
 Select the appropriate version for your operating system:
 
 | Platform | Direct Download |
@@ -66,4 +68,3 @@ Select the appropriate version for your operating system:
 | 🍎 **macOS (universal)** | [Sprang_Designer_V3.0_macOS.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_macOS.zip) |
 
 > 💡 *To view all previous releases, changelogs, and source archives, visit the [GitHub Releases](https://github.com/atelekes/Sprang_pattern_designer/releases) page.*
-
