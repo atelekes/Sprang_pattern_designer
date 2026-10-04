@@ -12,14 +12,14 @@ I welcome user feedback and suggestions for improving the program.
 
 - **Modern UI**: Comes with a much cleaner, user-friendly interface and a built-in **Night Mode**.
 
-<img alt="Main interface" src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" />
+<img src="https://github.com/user-attachments/assets/63800e27-988e-472b-87d9-93057c81ee0c" style="max-width: 100%; height: auto;" alt="Sprang Designer Main Interface" />
 
 
 - **Multi-Selection & Editing**: Select multiple charts or nodes to *move*, *delete*, *mirror* or *copy-paste* them easily.
   
 - **Built-in Helper**: Includes an overlay with all keybindings
   
-  <img alt="Helper" src="https://github.com/user-attachments/assets/cc175485-9a16-40a1-b4f3-63ffac05256f" />
+<img src="https://github.com/user-attachments/assets/0646b58e-0883-4e4e-bc28-7c21feef5af1" style="max-width: 100%; height: auto;" alt="Built-in Helper Keybindings" />
 
 - **Improved Save System**:
   - Saves the full pattern regardless of your viewing or zoom position.
@@ -28,7 +28,7 @@ I welcome user feedback and suggestions for improving the program.
     
  - **Interactive Row Tracker**: Darkens every row except the active one to help align your eyes while weaving.
 
-  <img alt="Row tracker" src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" />
+<img src="https://github.com/user-attachments/assets/6a50b81d-54c3-4c27-8544-40c3d892c8d1" style="max-width: 100%; height: auto;" alt="Row Tracker Feature" />
 
 ---
 
