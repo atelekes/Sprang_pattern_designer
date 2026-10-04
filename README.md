@@ -33,7 +33,7 @@ Select the appropriate version for your operating system:
 
 | Platform | Direct Download |
 | :--- | :--- |
-| 🪟 **Windows** | [Sprang_Designer_V3.0_win.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_win.zip) |
+| ⊞ **Windows** | [Sprang_Designer_V3.0_win.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_win.zip) |
 | 🐧 **Linux** | [Sprang_Designer_V3.0_linux.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_linux.zip) |
 | 🍎 **macOS (universal)** | [Sprang_Designer_V3.0_macOS.zip](https://github.com/atelekes/Sprang_pattern_designer/releases/latest/download/Sprang_Designer_V3.0_macOS.zip) |
 
