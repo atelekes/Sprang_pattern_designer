@@ -5,6 +5,7 @@ I welcome user feedback and suggestions for improving the program.
 [Report bugs here!](https://github.com/atelekes/Sprang_pattern_designer/issues)
 
 ## [Try it **online**](https://atelekes.github.io/Sprang_pattern_designer/app/)
+
 ---
 
 ## Features
