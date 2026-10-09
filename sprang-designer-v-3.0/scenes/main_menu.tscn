@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dexpse1dci77p" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 
+[sub_resource type="Theme" id="Theme_j0ap8"]
+
 [node name="MainMenu" type="Control" unique_id=1356630588]
 layout_mode = 3
 anchors_preset = 15
@@ -44,6 +46,25 @@ file_mode = 0
 access = 2
 filters = PackedStringArray("*.png", "*.json")
 
+[node name="Label" type="Label" parent="." unique_id=859914062]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -336.0
+offset_right = 177.5
+offset_bottom = -289.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j0ap8")
+theme_override_font_sizes/font_size = 34
+text = "Select or Drop the file"
+
 [connection signal="button_down" from="VBoxContainer/Create" to="." method="_on_create_button_down"]
 [connection signal="button_down" from="VBoxContainer/Load" to="." method="_on_load_button_down"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="files_dropped" from="FileDialog" to="." method="_on_file_dialog_files_dropped"]

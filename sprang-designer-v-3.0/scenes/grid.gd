@@ -274,7 +274,10 @@ func _get_visible_rect() -> Rect2: #returns the viewport's Rect
 	return Rect2(top_left, half_size * 2)
 
 func _on_image_save_button_down() -> void:
-	$"../SaveDialog".popup_centered()
+	if OS.has_feature("web"):
+		_on_save_dialog_file_selected("1")
+	else:
+		$"../SaveDialog".popup_centered()
 
 func _build_save_data() -> Dictionary:
 	var marks_data := []
@@ -321,19 +324,36 @@ func _on_save_dialog_file_selected(path: String) -> void:
 	await RenderingServer.frame_post_draw
 	
 	var img = capture_viewport.get_texture().get_image()
-	img.save_png(path)
 	
 	var save_data := _build_save_data()
 	var json_string := JSON.stringify(save_data)
-	var file := FileAccess.open(path, FileAccess.READ_WRITE)
-	file.seek_end()
-	file.store_string("\nSPRANG_DATA:" + json_string)
-	file.close()
 	
-	var json_path := path.get_basename() + ".json"
-	var json_file := FileAccess.open(json_path, FileAccess.WRITE)
-	json_file.store_string(json_string)
-	json_file.close()
+	if OS.has_feature("web"):
+		var png_buffer: PackedByteArray = img.save_png_to_buffer()
+		var embed_bytes: PackedByteArray = ("\nSPRANG_DATA:" + json_string).to_utf8_buffer()
+		png_buffer.append_array(embed_bytes)
+		
+		var file_name: String = path.get_file()
+		if file_name.is_empty():
+			file_name = "project.png"
+		if not file_name.ends_with(".png"):
+			file_name += ".png"
+			
+		var json_file_name: String = file_name.get_basename() + ".json"
+		
+		JavaScriptBridge.download_buffer(png_buffer, file_name, "image/png")
+		JavaScriptBridge.download_buffer(json_string.to_utf8_buffer(), json_file_name, "application/json")
+	else:
+		img.save_png(path)
+		var file := FileAccess.open(path, FileAccess.READ_WRITE)
+		file.seek_end()
+		file.store_string("\nSPRANG_DATA:" + json_string)
+		file.close()
+		
+		var json_path := path.get_basename() + ".json"
+		var json_file := FileAccess.open(json_path, FileAccess.WRITE)
+		json_file.store_string(json_string)
+		json_file.close()
 	
 	capture_viewport.remove_child(self)
 	original_parent.add_child(self)
@@ -690,7 +710,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		var keycode = event.keycode
 		if keycode == KEY_F1:
-			call_deferred("_on_helper_button_down()")
+			call_deferred("_on_helper_button_down")
 
 				
 		elif keycode == KEY_H: #hide UI

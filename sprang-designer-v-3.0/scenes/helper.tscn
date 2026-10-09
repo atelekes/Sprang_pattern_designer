@@ -40,6 +40,7 @@ grow_vertical = 2
 script = ExtResource("1_463n5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1623090780]
+z_index = -1
 layout_mode = 0
 offset_right = 4649.0
 offset_bottom = 2866.0
@@ -51,7 +52,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 192.0
 offset_bottom = 731.0
-text = "Editor keybinding:
+text = "Editor keybindings:
 -Change the number of
   rows/columns
 -Pan:
